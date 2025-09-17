@@ -1,7 +1,7 @@
 .back-button button {
   color: var(--color-seocndary);
   padding: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 .back-button button:hover {
   color: var(--color-primary);
