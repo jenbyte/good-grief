@@ -7,15 +7,17 @@ import Savings from "./pages/Savings/Savings";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="bg-white rounded-xl min-h-9/10 min-w-svh p-7 md:px-10 md:min-w-100">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/care-packages" element={<Savings />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="sm:py-5 md:py-10">
+      <BrowserRouter>
+        <div className="bg-white rounded-xl min-h-9/10 p-7 sm:min-w-160 md:px-10 md:min-w-190">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/care-packages" element={<Savings />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 

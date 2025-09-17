@@ -6,7 +6,7 @@ const BackButton = () => {
   const handleGoBack = () => navigate(-1);
 
   return (
-    <div className="back-button stroke-2">
+    <div className="back-button">
       <button onClick={handleGoBack} className="">
         {"<"} Back
       </button>
