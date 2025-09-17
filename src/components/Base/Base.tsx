@@ -1,30 +1,33 @@
-import React from 'react'
-import Card from '../Card/Card'
+import React from "react";
+import Card from "../Card/Card";
 
-type BaseProps = {
-}
+type Saving = {
+  title: string;
+  isActive: boolean;
+};
 
-const Base: React.FC<BaseProps> = ({}) => {
+type SavingListProps = {
+  savings: Saving[];
+};
+
+const Base: React.FC<SavingListProps> = ({ savings }) => {
+  console.log("savings", savings);
+
   return (
-    <div className=''>
-        <div>
-            <div className=''></div>
-            <h1>Hi, how are you feeling today?</h1>
+    <div className="">
+      <div>
+        <div className=""></div>
+        <h1>Hi, how are you feeling today?</h1>
 
-            <div>
-                <Card />
-            </div>
-      
+        <div>{/* <Card /> */}</div>
       </div>
 
       <div>
-        <h2 >Offers</h2>
-        <div>
-            <Card />
-        </div>
+        <h2>Savings</h2>
+        <div>{/* <Card /> */}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Base
+export default Base;
