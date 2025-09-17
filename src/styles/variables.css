@@ -1,0 +1,13 @@
+:root {
+  color-scheme: light;
+
+  --color-text: #292455;
+  --color-bg-main: #f5eef8;
+  --color-icon-bg: #ddd2e4;
+  --color-primary: #a38bd3;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

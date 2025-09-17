@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import Savings from "../Savings";
+import Savings from "../Savings/Savings";
 
 type HomeProps = {};
 
@@ -54,25 +55,23 @@ const Home: React.FC<HomeProps> = ({}) => {
   console.log({ savings });
   return (
     <div className="">
-      <div>
+      <section>
         <div className=""></div>
         <h1>Hi, how are you feeling today?</h1>
 
         <div>
           <Card id="featured0" title="Feaured Meditation" isActive={true} />
         </div>
-      </div>
+      </section>
 
-      <div>
-        <h2
-          className="cursor-pointer hover:underline"
-          role="link"
-          tabIndex={0}
-          // onClick={go}
-          // onKeyDown={(e) => e.key === "Enter" && go()
-        >
-          Savings
-        </h2>
+      <section>
+        <div className="flex flex-row justify-between items-center-safe">
+          <h2>Care Packages</h2>
+          <Link to="/care-packages" className="cursor-pointer hover:underline">
+            View more
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {savings.map(
             (saving) =>
@@ -86,7 +85,17 @@ const Home: React.FC<HomeProps> = ({}) => {
               )
           )}
         </div>
-      </div>
+      </section>
+
+      <section>
+        <div className="flex flex-row justify-between items-center-safe">
+          <h2>Articles</h2>
+          <Link to="/articles" className="cursor-pointer hover:underline">
+            View more
+          </Link>
+        </div>
+        <div></div>
+      </section>
     </div>
   );
 };

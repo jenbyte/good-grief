@@ -8,10 +8,10 @@
   color-scheme: light dark;
   color: #292455;
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #F5EEF8;
-  --main-bg-color: #F5EEF8;
-  --icon-bg-color: #DDD2E4;
-  --primary-color: #a38bd3;
+  background-color: #f5eef8;
+  --color-bg-main: #f5eef8;
+  --color-icon-bg: #ddd2e4;
+  --color-primary: #a38bd3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,7 +53,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }

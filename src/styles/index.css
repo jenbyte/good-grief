@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/** Add CSS imports below **/
+
+@import "./globals.css";
+@import "./variables.css";
+
+@import "./components/buttons.css";

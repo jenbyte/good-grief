@@ -1,0 +1,5 @@
+.back-button button {
+  color: var(--color-primary);
+  padding: 0;
+  padding-bottom: 1rem;
+}
