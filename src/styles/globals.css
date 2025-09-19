@@ -116,11 +116,13 @@ button {
 h1 {
   font-size: 2.25em;
   line-height: 1.1;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
   font-size: 1.75em;
   line-height: 1.5;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import viteLogo from "/vite.svg";
 
 type CardProps = {
   id: string;
@@ -12,8 +13,8 @@ const Card: React.FC<CardProps> = ({ id, title, isActive }) => {
   return (
     <>
       {isActive && (
-        <div key={id} className="card rounded-xl my-5 p-5">
-          <img></img>
+        <div key={id} className="card rounded-xl p-5">
+          <img src={viteLogo} className="logo mx-auto" alt="placeholder img" />
           <h3>{title}</h3>
         </div>
       )}
