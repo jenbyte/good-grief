@@ -36,7 +36,7 @@ const coupons = [
   },
   {
     id: "coupons4",
-    title: "20% off groceries",
+    title: "Free Cookie at Bakery",
     org: "",
     orgId: "",
     isActive: true,

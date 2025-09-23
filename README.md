@@ -1,3 +1,43 @@
+# Vite + FastAPI + Neon Starter
+
+A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) database via a Python (FastAPI) backend. 
+
+## Technologies Used & Pre-requisites
+
+### Client-side
+-
+
+### Server-side
+- **Psycopg** - a PostgreSQL adapter for Python
+- 
+
+
+## Run Client-side (frontend)
+
+```
+cd client
+
+npm run dev
+```
+
+
+## Run Server-side (backend)
+
+```cd server```
+
+### Activate Virtual Environment
+
+```source .venv/bin/activate```
+
+### Run app
+
+```uvicorn main:app --reload```
+
+### Disconnect Virtual Environment
+
+```deactivate```
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -6,24 +46,6 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Run Frontend
-
-`cd client`
-
-`npm run dev`
-
-## Run Backend
-
-`cd server`
-
-Activate the Virtual Environment
-
-`source .venv/bin/activate`
-
-Close the VE
-
-`deactivate`
 
 ## Expanding the ESLint configuration
 
