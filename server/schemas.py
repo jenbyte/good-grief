@@ -1,7 +1,7 @@
 # schemas.py file for Pydantic models with data validation
 
-from pydantic import BaseModel
-from datetime import datetime
+from pydantic import BaseModel, Field
+from datetime import datetime, date
 from typing import List, Optional
 
 class TalkBase(BaseModel):
@@ -45,8 +45,8 @@ class SpeakerWithTalks(Speaker):
 class CouponBase(BaseModel):
     name: str
     is_active: bool
-    date_start: datetime
-    date_expires: datetime
+    date_start: date | Optional[date] = None # date = Field(default_factory=date.today)
+    date_expires: date | Optional[date] = None # NULL = no expiry
 
 class CouponCreate(CouponBase):
     organization_id: int

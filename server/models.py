@@ -1,6 +1,6 @@
 # models.py file for SQLAlchemy models and relationships
 
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Date
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -40,8 +40,8 @@ class Coupon(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
     is_active = Column(Boolean)
-    date_start = Column(DateTime, nullable=True)
-    date_expires = Column(DateTime, nullable=True)
+    date_start = Column(Date, nullable=True)
+    date_expires = Column(Date, nullable=True)
     organization_id = Column(Integer, ForeignKey("organizations.id"))
 
     organization = relationship("Organization", back_populates="coupons")

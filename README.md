@@ -4,15 +4,21 @@ A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) 
 
 ## Technologies Used & Pre-requisites
 
-### Client-side
+### Client-Side
+
 -
 
-### Server-side
-- **Psycopg** - a PostgreSQL adapter for Python
-- 
+### Server-Side
+
+- **FastAPI** - A high-performance Python web framework for building APIs quickly and efficiently
+- Uvicorn: An ASGI server to run FastAPI application
+- SQLAlchemy: An ORM for database interactions
+- psycopg2-binary: PostgreSQL adapter for Python
+- Pydantic: For data validation and settings management
+- python-dotenv: To load environment variables from a .env file
 
 
-## Run Client-side (frontend)
+## Run Client-Side (Frontend)
 
 ```
 cd client
@@ -21,7 +27,7 @@ npm run dev
 ```
 
 
-## Run Server-side (backend)
+## Run Server-Side (Backend)
 
 ```cd server```
 
