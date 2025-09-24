@@ -4,11 +4,13 @@ A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) 
 
 ## Technologies Used & Pre-requisites
 
-### Client-Side
+### Frontend
 
--
+- **React**
+- **Vite** 
+- **TypeScript**
 
-### Server-Side
+### Backend
 
 - **FastAPI** - A high-performance Python web framework for building APIs quickly and efficiently
 - Uvicorn: An ASGI server to run FastAPI application
@@ -17,8 +19,11 @@ A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) 
 - Pydantic: For data validation and settings management
 - python-dotenv: To load environment variables from a .env file
 
+### Database
 
-## Run Client-Side (Frontend)
+- **NeonDB** - serverless postgres platform
+
+## Run Frontend (Client)
 
 ```
 cd client
@@ -26,22 +31,29 @@ cd client
 npm run dev
 ```
 
+## Run Backend (Server)
 
-## Run Server-Side (Backend)
-
-```cd server```
+```
+cd server
+```
 
 ### Activate Virtual Environment
 
-```source .venv/bin/activate```
+```
+source .venv/bin/activate
+```
 
 ### Run app
 
-```uvicorn main:app --reload```
+```
+uvicorn main:app --reload
+```
 
 ### Disconnect Virtual Environment
 
-```deactivate```
+```
+deactivate
+```
 
 
 # React + TypeScript + Vite

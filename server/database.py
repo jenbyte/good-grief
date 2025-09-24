@@ -12,12 +12,13 @@ SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-# Creates a SessionLocal class for database sessions
+# Database sessions
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Defines a Base class for declarative models which will be used to create database tables
+# Will be used to create database tables
 Base = declarative_base()
 
+# Manage database connections
 def get_db():
     db = SessionLocal()
     try:

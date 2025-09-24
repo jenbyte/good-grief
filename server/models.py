@@ -34,6 +34,7 @@ class Organization(Base):
 
     coupons = relationship("Coupon", back_populates="organization")
 
+
 class Coupon(Base):
     __tablename__ = "coupons"
 
