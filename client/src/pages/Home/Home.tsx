@@ -1,58 +1,58 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import Coupons from "../Coupons/Coupons";
+import Offers from "../Offers/Offers";
 
 type HomeProps = {};
 
-const coupons = [
+const offers = [
   {
-    id: "coupons0",
+    id: "offers0",
     title: "25% off meal delivery",
     org: "",
     orgId: "",
     isActive: true,
   },
   {
-    id: "coupons1",
+    id: "offers1",
     title: "Free trial grief counseling",
     org: "",
     orgId: "",
     isActive: true,
   },
   {
-    id: "coupons2",
+    id: "offers2",
     title: "Free tea at boba shop",
     org: "",
     orgId: "",
     isActive: true,
   },
   {
-    id: "coupons3",
+    id: "offers3",
     title: "Free Cookie at Bakery",
     org: "",
     orgId: "",
     isActive: true,
   },
   {
-    id: "coupons4",
+    id: "offers4",
     title: "Free Cookie at Bakery",
     org: "",
     orgId: "",
     isActive: true,
   },
   {
-    id: "coupons5",
+    id: "offers5",
     title: "10% off massage",
     org: "",
     orgId: "",
     isActive: true,
   },
-  { id: "coupons6", title: "Free reiki", org: "", orgId: "", isActive: true },
+  { id: "offers6", title: "Free reiki", org: "", orgId: "", isActive: true },
 ];
 
 const Home: React.FC<HomeProps> = ({}) => {
-  console.log({ coupons });
+  console.log({ offers });
   return (
     <div className="">
       <section>
@@ -73,14 +73,14 @@ const Home: React.FC<HomeProps> = ({}) => {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
-          {coupons.map(
-            (coupon) =>
-              coupon.isActive && (
+          {offers.map(
+            (offer) =>
+              offer.isActive && (
                 <Card
-                  key={coupon.id}
-                  id={coupon.id}
-                  title={coupon.title}
-                  isActive={coupon.isActive}
+                  key={offer.id}
+                  id={offer.id}
+                  title={offer.title}
+                  isActive={offer.isActive}
                 />
               )
           )}

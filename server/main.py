@@ -52,45 +52,45 @@ def read_talk(talk_id: int, db: Session = Depends(get_db)):
 
 
 
-@app.post("/organizations/", response_model=schemas.Organization)
-def create_organization(organization: schemas.OrganizationCreate, db: Session = Depends(get_db)):
-    db_organization = models.Organization(**organization.dict())
-    db.add(db_organization)
+@app.post("/users/", response_model=schemas.User)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = models.User(**user.dict())
+    db.add(db_user)
     db.commit()
-    db.refresh(db_organization)
-    return db_organization
+    db.refresh(db_user)
+    return db_user
 
-@app.get("/organizations/", response_model=List[schemas.Organization])
-def read_organizations(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    organizations = db.query(models.Organization).offset(skip).limit(limit).all()
-    return organizations
+@app.get("/users/", response_model=List[schemas.User])
+def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    users = db.query(models.User).offset(skip).limit(limit).all()
+    return users
 
-@app.get("/organizations/{organization_id}", response_model=schemas.OrganizationWithCoupons)
-def read_organization(organization_id: int, db: Session = Depends(get_db)):
-    db_organization = db.query(models.Organization).filter(models.Organization.id == organization_id).first()
-    if db_organization is None:
-        raise HTTPException(status_code=404, detail="Organization not found")
-    return db_organization
+@app.get("/users/{user_id}", response_model=schemas.UserWithOffers)
+def read_user(user_id: int, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return db_user
 
-@app.post("/coupons/", response_model=schemas.Coupon)
-def create_coupon(coupon: schemas.CouponCreate, db: Session = Depends(get_db)):
-    db_coupon = models.Coupon(**coupon.dict())
-    db.add(db_coupon)
+@app.post("/offers/", response_model=schemas.Offer)
+def create_offer(offer: schemas.OfferCreate, db: Session = Depends(get_db)):
+    db_offer = models.Offer(**offer.dict())
+    db.add(db_offer)
     db.commit()
-    db.refresh(db_coupon)
-    return db_coupon
+    db.refresh(db_offer)
+    return db_offer
 
-@app.get("/coupons/", response_model=List[schemas.Coupon])
-def read_coupons(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    coupons = db.query(models.Coupon).offset(skip).limit(limit).all()
-    return coupons
+@app.get("/offers/", response_model=List[schemas.Offer])
+def read_offers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    offers = db.query(models.Offer).offset(skip).limit(limit).all()
+    return offers
 
-@app.get("/coupons/{coupon_id}", response_model=schemas.Coupon)
-def read_coupon(coupon_id: int, db: Session = Depends(get_db)):
-    db_coupon = db.query(models.Coupon).filter(models.Coupon.id == coupon_id).first()
-    if db_coupon is None:
-        raise HTTPException(status_code=404, detail="Coupon not found")
-    return db_coupon
+@app.get("/offers/{offer_id}", response_model=schemas.Offer)
+def read_offer(offer_id: int, db: Session = Depends(get_db)):
+    db_offer = db.query(models.Offer).filter(models.Offer.id == offer_id).first()
+    if db_offer is None:
+        raise HTTPException(status_code=404, detail="Offer not found")
+    return db_offer
 
 @app.post("/articles/", response_model=schemas.Article)
 def create_article(article: schemas.ArticleCreate, db: Session = Depends(get_db)):

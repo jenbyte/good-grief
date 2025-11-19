@@ -1,17 +1,17 @@
 import React from "react";
 import Card from "../Card/Card";
 
-type Coupon = {
+type Offer = {
   title: string;
   isActive: boolean;
 };
 
-type CouponListProps = {
-  coupons: Coupon[];
+type OfferListProps = {
+  offers: Offer[];
 };
 
-const Base: React.FC<CouponListProps> = ({ coupons }) => {
-  console.log("coupons", coupons);
+const Base: React.FC<OfferListProps> = ({ offers }) => {
+  console.log("offers", offers);
 
   return (
     <div className="">
@@ -23,7 +23,7 @@ const Base: React.FC<CouponListProps> = ({ coupons }) => {
       </div>
 
       <div>
-        <h2>Coupons</h2>
+        <h2>Offers</h2>
         <div>{/* <Card /> */}</div>
       </div>
     </div>

@@ -26,26 +26,26 @@ class Talk(Base):
 
     speaker = relationship("Speaker", back_populates="talks")
 
-class Organization(Base):
-    __tablename__ = "organizations"
+class User(Base):
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
 
-    coupons = relationship("Coupon", back_populates="organization")
+    offers = relationship("Offer", back_populates="user")
 
 
-class Coupon(Base):
-    __tablename__ = "coupons"
+class Offer(Base):
+    __tablename__ = "offers"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
     is_active = Column(Boolean)
     date_start = Column(Date, nullable=True)
     date_expires = Column(Date, nullable=True)
-    organization_id = Column(Integer, ForeignKey("organizations.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
 
-    organization = relationship("Organization", back_populates="coupons")
+    user = relationship("User", back_populates="offers")
 
 
 class Article(Base):

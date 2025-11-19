@@ -42,38 +42,38 @@ class SpeakerWithTalks(Speaker):
 
 
 
-class CouponBase(BaseModel):
+class OfferBase(BaseModel):
     name: str
     is_active: bool
     date_start: date | Optional[date] = None # date = Field(default_factory=date.today)
     date_expires: date | Optional[date] = None # NULL = no expiry
 
-class CouponCreate(CouponBase):
-    organization_id: int
+class OfferCreate(OfferBase):
+    user_id: int
 
-class Coupon(CouponBase):
+class Offer(OfferBase):
     id: int
-    organization_id: int
+    user_id: int
 
     class Config:
         orm_mode = True
 
 
-class OrganizationBase(BaseModel):
+class UserBase(BaseModel):
     name: str
 
-class OrganizationCreate(OrganizationBase):
+class UserCreate(UserBase):
     pass
 
-class Organization(OrganizationBase):
+class User(UserBase):
     id: int
-    coupons: List[Coupon] = []
+    offers: List[Offer] = []
 
     class Config:
         orm_mode = True
 
-class OrganizationWithCoupons(Organization):
-    coupons: List[Coupon]    
+class UserWithOffers(User):
+    offers: List[Offer]    
 
 
 class ArticleBase(BaseModel):

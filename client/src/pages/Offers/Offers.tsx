@@ -1,6 +1,6 @@
 import BackButton from "../../components/BackButton";
 
-const Coupons = () => {
+const Offers = () => {
   return (
     <div>
       <BackButton />
@@ -9,4 +9,4 @@ const Coupons = () => {
   );
 };
 
-export default Coupons;
+export default Offers;
