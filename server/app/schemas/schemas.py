@@ -44,17 +44,18 @@ class UserCreate(UserBase):
 # Ouput
 class UserOut(UserBase):
     id: int
-    offers: List[OfferOut] = []
 
     class Config:
-        orm_mode = True
+        orm_mode = True  
 
-class UserWithOffers(UserOut):
+class PartnerWithOffers(UserOut):
     offers: List[OfferOut]    
 
 
 class ArticleBase(BaseModel):
     title: str
+    description: Optional[str] = None
+    image_url: Optional[str] = None
 
 class ArticleCreate(ArticleBase):
     pass

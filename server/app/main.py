@@ -15,6 +15,8 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+# USERS # 
+
 @app.post("/users/", response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = models.User(**user.dict())
@@ -23,25 +25,44 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_user)
     return db_user
 
+@app.get("/users/{user_id}", response_model=schemas.UserOut)
+def read_user(user_id: int, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return db_user
+
 @app.get("/users/", response_model=List[schemas.UserOut])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = db.query(models.User).offset(skip).limit(limit).all()
     return users
 
-@app.get("/users/{user_id}", response_model=schemas.UserWithOffers)
-def read_user(user_id: int, db: Session = Depends(get_db)):
-    db_user = db.query(models.User).filter(models.User.id == user_id, models.User.user_type == "PARTNER").first()
-    if db_user is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return db_user
 
-@app.get("/users/{user_id}", response_model=schemas.UserWithOffers)
-def read_user(user_id: int, db: Session = Depends(get_db)):
-    db_user = db.query(models.User).filter(models.User.id == user_id, models.User.user_type == "PARTNER").first()
-    if db_user is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return db_user
+# USERS - PARTNERS # 
 
+@app.get("/partners/{partner_id}", response_model=schemas.PartnerWithOffers)
+def read_partner(partner_id: int, db: Session = Depends(get_db)):
+    db_partner = db.query(models.User).filter(
+            models.User.id == partner_id, 
+            models.User.user_type == "PARTNER"
+        ).first()
+    if db_partner is None:
+        raise HTTPException(status_code=404, detail="Partner not found")
+    return db_partner
+
+@app.get("/partners/", response_model=List[schemas.PartnerWithOffers])
+def read_partners(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    partners = (
+        db.query(models.User)
+        .filter(models.User.user_type == "PARTNER")
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
+    return partners
+
+
+# OFFERS # 
 
 @app.post("/offers/", response_model=schemas.OfferOut)
 def create_offer(offer: schemas.OfferCreate, db: Session = Depends(get_db)):
@@ -63,6 +84,8 @@ def read_offer(offer_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Offer not found")
     return db_offer
 
+
+# ARTICLES # 
 
 @app.post("/articles/", response_model=schemas.Article)
 def create_article(article: schemas.ArticleCreate, db: Session = Depends(get_db)):
