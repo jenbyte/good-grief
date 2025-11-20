@@ -1,13 +1,13 @@
 # Vite + FastAPI + Neon Starter
 
-A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) database via a Python (FastAPI) backend. 
+A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) database via a Python (FastAPI) backend.
 
 ## Technologies Used & Pre-requisites
 
 ### Frontend
 
 - **React**
-- **Vite** 
+- **Vite**
 - **TypeScript**
 
 ### Backend
@@ -37,24 +37,23 @@ npm run dev
 cd server
 ```
 
-### Activate Virtual Environment
+Activate Virtual Environment:
 
 ```
 source .venv/bin/activate
 ```
 
-### Run app
+Run app:
 
 ```
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
-### Disconnect Virtual Environment
+Deactivate VE:
 
 ```
 deactivate
 ```
-
 
 # React + TypeScript + Vite
 

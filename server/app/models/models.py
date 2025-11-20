@@ -1,10 +1,11 @@
 # MODELS
 # - Defines database structures 
 
-from sqlalchemy import Column, BigInteger, Integer, String, Boolean, ForeignKey, DateTime, Date, Enum, func, and_, text
+from sqlalchemy import Column, BigInteger, Integer, String, Boolean, ForeignKey, DateTime, Date, Enum as SQLEnum, func, and_, text
 from sqlalchemy.orm import relationship
-from database import Base
-from enum import Enum as PyEnum
+
+from app.database import Base
+from app.enum import UserType
 
 class TimestampMixins:
     created_at = Column(
@@ -14,13 +15,9 @@ class TimestampMixins:
         DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False
     )
 
-class UserType(PyEnum):
-    ADMIN = "ADMIN"
-    PARTNER = "PARTNER"
-    CUSTOMER = "CUSTOMER"
-
-user_type_enum = Enum(
-    UserType, name="user_type", create_type=False
+# Create an Enum in DB
+user_type_enum = SQLEnum(
+    UserType, name="user_type", create_type=True 
 )
 
 class User(TimestampMixins, Base):

@@ -2,14 +2,20 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 
-import models, schemas
-from database import engine, get_db
+from app.database import Base, engine, get_db
+from .models import models
+from .schemas import schemas
 
-models.Base.metadata.create_all(bind=engine)
+## DEV ENV - REMOVE WHEN DONE MAKING DB
+Base.metadata.drop_all(engine)
+## TODO: REMOVE WHEN DONE MAKING DB
+
+# Create tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-@app.post("/users/", response_model=schemas.User)
+@app.post("/users/", response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = models.User(**user.dict())
     db.add(db_user)
@@ -17,7 +23,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_user)
     return db_user
 
-@app.get("/users/", response_model=List[schemas.User])
+@app.get("/users/", response_model=List[schemas.UserOut])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = db.query(models.User).offset(skip).limit(limit).all()
     return users
