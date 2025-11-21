@@ -2,16 +2,20 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 
-from app.database import Base, engine, get_db
+from app.database import Base, engine, get_db, SessionLocal
 from .models import models
 from .schemas import schemas
+from app.db.seed import seed_mock_data
 
 ## DEV ENV - REMOVE WHEN DONE MAKING DB
-Base.metadata.drop_all(engine)
+Base.metadata.drop_all(engine) # only in dev
 ## TODO: REMOVE WHEN DONE MAKING DB
 
 # Create tables
 Base.metadata.create_all(bind=engine)
+
+session = SessionLocal()
+seed_mock_data(session) # mock data
 
 app = FastAPI()
 
