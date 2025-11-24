@@ -10,9 +10,9 @@ from app.enum import UserType
 # Parent/Base
 class OfferBase(BaseModel):
     title: str
-    partner_id: int
     description: Optional[str] = None
     image_url: Optional[str] = None
+    partner_id: int
     is_active: bool = True
     date_start: date
     date_expires: Optional[date] = None

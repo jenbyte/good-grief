@@ -25,7 +25,9 @@ A minimal, safe pattern to connect a React (Vite) frontend to a Neon (Postgres) 
 
 ## Run Frontend (Client)
 
-```
+Navigate to the frontend directory and start the local development server:
+
+```bash
 cd client
 
 npm run dev
@@ -33,25 +35,29 @@ npm run dev
 
 ## Run Backend (Server)
 
-```
+1. Navigate to the backend
+
+```bash
 cd server
 ```
 
-Activate Virtual Environment:
+2. Activate the virtual environment
 
-```
+```bash
 source .venv/bin/activate
 ```
 
-Run app:
+3. Start the API server
 
-```
+```bash
 uvicorn app.main:app --reload
+
+uvicorn app.main:app --reload --port 8000
 ```
 
-Deactivate VE:
+4. Exit the virtual environment
 
-```
+```bash
 deactivate
 ```
 

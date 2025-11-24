@@ -10,7 +10,10 @@ load_dotenv()
 # Creates a SQLAlchemy engine using the database URL from environment variables
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL") 
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    pool_pre_ping=True  # Checks connection health before use
+)
 
 # Database sessions
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

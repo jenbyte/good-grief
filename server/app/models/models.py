@@ -36,10 +36,10 @@ class Offer(TimestampMixins, Base):
     __tablename__ = "offers"
 
     id = Column(BigInteger, primary_key=True)
-    partner_id = Column(BigInteger, ForeignKey("users.id"), nullable=False)
     title = Column(String, nullable=False)
     description = Column(String)
     image_url = Column(String)
+    partner_id = Column(BigInteger, ForeignKey("users.id"), nullable=False)
 
     date_start = Column(Date, nullable=False, server_default=func.current_date())
     date_expires = Column(Date, nullable=True)

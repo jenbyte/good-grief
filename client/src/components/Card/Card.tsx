@@ -2,14 +2,22 @@ import React from "react";
 import viteLogo from "/vite.svg";
 
 type CardProps = {
-  id: string;
+  id: number;
   title: string;
-  org?: string;
-  orgId?: string;
-  isActive?: boolean;
+  description?: string | null;
+  imageUrl?: string | null;
+  isActive: boolean;
 };
 
-const Card: React.FC<CardProps> = ({ id, title, isActive }) => {
+const Card: React.FC<CardProps> = ({
+  id,
+  title,
+  description,
+  imageUrl,
+  isActive,
+}) => {
+  console.log("Offer", title, isActive);
+
   return (
     <>
       {isActive && (

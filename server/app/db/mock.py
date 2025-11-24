@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from datetime import date, timedelta
 from app.models.models import User, Offer
 
-def seed_mock_data(session: Session):
+def mock_data(session: Session):
     user1 = User(id=1, user_type="PARTNER", name="TheZenZone", email="th3z3nzon3@email.com")
     user2 = User(id=2, user_type="PARTNER", name="Meals on Wheels", email="mealsonwheels@eats.org")
     user3 = User(id=3, user_type="PARTNER", name="Bobalicious", email="bobalicious@email.com")
