@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchOffers } from "../../api/offers";
+import { useOffers } from "../../hooks/useOffers";
 import Card from "../../components/Card/Card";
+import FeaturedCard from "../../components/Card/FeaturedCard";
 
 type HomeProps = {};
 
@@ -15,34 +15,22 @@ type Offer = {
   partner_id: number;
 };
 
-export function OfferList() {
-  const [offers, setOffers] = useState<Offer[]>([]);
-
-  useEffect(() => {
-    fetchOffers()
-      .then((data) => {
-        setOffers(data);
-      })
-      .catch((err: any) => {
-        console.error(err);
-      });
-  }, []);
-}
-
 const Home: React.FC<HomeProps> = ({}) => {
-  const [offers, setOffers] = useState<Offer[]>([]);
+  // const [offers, setOffers] = useState<Offer[]>([]);
 
-  useEffect(() => {
-    fetchOffers()
-      .then((data) => {
-        setOffers(data);
-      })
-      .catch((err: any) => {
-        console.error(err);
-      });
-  }, []);
+  const { offers, loading, error } = useOffers();
 
-  console.log("offers: ", typeof offers, offers);
+  // useEffect(() => {
+  //   fetchOffers()
+  //     .then((data) => {
+  //       setOffers(data);
+  //     })
+  //     .catch((err: any) => {
+  //       console.error(err);
+  //     });
+  // }, []);
+
+  console.log("offers: ", offers);
   return (
     <div className="">
       <section>
@@ -50,7 +38,7 @@ const Home: React.FC<HomeProps> = ({}) => {
         <h1>Hi, how are you feeling today?</h1>
 
         <div>
-          <Card id={0} title="Feaured Meditation" isActive={true} />
+          <FeaturedCard id={0} title="Feaured Meditation" />
         </div>
       </section>
 
@@ -71,7 +59,10 @@ const Home: React.FC<HomeProps> = ({}) => {
                 id={offer.id}
                 title={offer.title}
                 description={offer.description}
-                imageUrl={offer.image_url}
+                // imageUrl={offer.image_url}
+                imageUrl={
+                  "https://images.unsplash.com/photo-1581337204873-ef36aa186caa?q=80&w=800&auto=format&fit=crop"
+                }
                 isActive={offer.is_active}
               />
             );

@@ -18,6 +18,8 @@ class OfferBase(BaseModel):
     date_expires: Optional[date] = None
     usage_limit: Optional[int] = None
     usage_count: int = 0
+    created_at: datetime
+    updated_at: datetime
 
 # Input
 class OfferCreate(OfferBase):
@@ -36,6 +38,8 @@ class UserBase(BaseModel):
     name: str
     email: str
     user_type: UserType
+    created_at: datetime
+    updated_at: datetime
 
 # Input
 class UserCreate(UserBase):

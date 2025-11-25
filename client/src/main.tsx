@@ -5,7 +5,7 @@ import "./styles/index.css";
 import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  // <StrictMode> // TODO: Add back in production
+  <App />
+  // </StrictMode>
 );
