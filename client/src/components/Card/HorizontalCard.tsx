@@ -20,7 +20,7 @@ const HorizontalCard: React.FC<CardProps> = ({
       {isActive && (
         <div
           key={id}
-          className="cursor-pointer h-full w-full max-w-[48rem] flex flex-row sm:mb-2 md:mb-3"
+          className="cursor-pointer h-full w-full max-w-[48rem] flex flex-row shadow-sm sm:mb-2 md:mb-3"
         >
           <div className="m-0 w-2/5 shrink-0 border-surface">
             <img

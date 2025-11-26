@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
       {isActive && (
         <div
           key={id}
-          className="card cursor-pointer h-full w-full max-w-[24rem] overflow-hidden rounded-md"
+          className="card whitespace-nowrap inline-block flex-shrink-0 cursor-pointer h-full w-full max-w-[24rem] overflow-hidden rounded-md"
         >
           <div className="m-auto shrink-0">
             <img

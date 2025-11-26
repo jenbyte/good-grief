@@ -1,22 +1,28 @@
 :root {
   color-scheme: light;
-
-  /* BLUE THEME */
-  --color-text: #233c67;
-  --color-bg-main: #ccdbee;
-  --color-icon-bg: #99afd7;
-  --color-primary: #6888be;
-  --color-seocndary: #4470ad;
-
-  /* PURPLE THEME */
-  /* --color-text: #292455;
-  --color-bg-main: #f5eef8;
-  --color-icon-bg: #ddd2e4;
-  --color-primary: #a38bd3;
-  --color-seocndary: #3c1a7f; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* BLUE THEME */
+  /* --color-text: #233c67;
+  --color-bg-main: #ccdbee;
+  --color-icon-bg: #99afd7;
+  --color-primary: #6888be;
+  --color-seocndary: #4470ad; */
+
+  /* PURPLE THEME */
+  --color-text: #292455;
+  --color-bg-main: #ddd2e4;
+  --color-icon-bg: #f5eef8;
+  --color-primary: #a38bd3;
+  --color-seocndary: #3c1a7f;
+
+  /* BREAKPOINTS - SCREEN SIZE  */
+  --sm: 640px; /* sm - phones (landscape) */
+  --md: 768px; /* md - tablets */
+  --lg: 1024px; /* lg - laptops */
+  --xl: 1280px; /* xl - desktops */
+  --2xl: 1536px; /* 2xl - large desktops */
 }

@@ -6,33 +6,12 @@ import FeaturedCard from "../../components/Card/FeaturedCard";
 
 type HomeProps = {};
 
-type Offer = {
-  id: number;
-  title: string;
-  description?: string | null;
-  image_url?: string | null;
-  is_active: boolean;
-  partner_id: number;
-};
-
 const Home: React.FC<HomeProps> = ({}) => {
-  // const [offers, setOffers] = useState<Offer[]>([]);
-
   const { offers, loading, error } = useOffers();
-
-  // useEffect(() => {
-  //   fetchOffers()
-  //     .then((data) => {
-  //       setOffers(data);
-  //     })
-  //     .catch((err: any) => {
-  //       console.error(err);
-  //     });
-  // }, []);
 
   console.log("offers: ", offers);
   return (
-    <div className="">
+    <div className="home-page">
       <section>
         <div className=""></div>
         <h1>Hi, how are you feeling today?</h1>
@@ -50,9 +29,9 @@ const Home: React.FC<HomeProps> = ({}) => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+        {/* <div className="overflow-x-scroll min-h-[140px] w-full grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-8"> */}
+        <div className="flex overflow-x-scroll min-h-[140px] gap-5 md:gap-8">
           {offers.map((offer) => {
-            console.log("offer: ", offer);
             return (
               <Card
                 key={offer.id}
